@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Everyday Technology for Everyday Business — The Everyday Technologist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #0B2447;
+    --blue:   #19376D;
+    --mid:    #1A56DB;
+    --accent: #3B82F6;
+    --sky:    #DBEAFE;
+    --ice:    #EFF6FF;
+    --steel:  #475569;
+    --border: #CBD5E1;
+    --white:  #FFFFFF;
+    --text:   #0F172A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  .site-nav {
+    background: var(--navy);
+    padding: 0 5%;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-brand-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.2;
+  }
+
+  .nav-brand-text span {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: white; }
+
+  .nav-cta {
+    background: var(--mid) !important;
+    color: white !important;
+    padding: 7px 16px;
+    border-radius: 4px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 52px 5% 46px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 70% at 50% 0%, rgba(26,86,219,0.28) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(59,130,246,0.18);
+    border: 1px solid rgba(59,130,246,0.38);
+    color: var(--accent);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.85rem, 4.5vw, 3rem);
+    color: white;
+    line-height: 1.2;
+    max-width: 680px;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.68);
+    font-size: 1rem;
+    max-width: 540px;
+    margin: 0 auto 30px;
+    line-height: 1.68;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .btn-primary {
+    background: var(--mid);
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: rgba(255,255,255,0.82);
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid rgba(255,255,255,0.28);
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: white; color: white; }
+
+  /* SERVICES */
+  .services {
+    padding: 56px 5% 52px;
+    background: var(--white);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .section-label {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 10px;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .section-header p {
+    color: var(--steel);
+    font-size: 0.97rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.68;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 24px 22px;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+    background: white;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--mid);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.28s;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 6px 24px rgba(11,36,71,0.09);
+    border-color: var(--sky);
+    transform: translateY(-2px);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--ice);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .service-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--mid);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .service-card p {
+    color: var(--steel);
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  /* WHO IT'S FOR */
+  .for-who {
+    background: var(--navy);
+    padding: 52px 5%;
+  }
+
+  .for-who .section-label { color: var(--accent); }
+
+  .for-who-h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    color: white;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .for-who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .for-who-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 6px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .check {
+    width: 20px;
+    height: 20px;
+    background: var(--mid);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .check svg {
+    width: 11px;
+    height: 11px;
+    stroke: white;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .for-who-item p {
+    color: rgba(255,255,255,0.78);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .for-who-item strong { color: white; }
+
+  /* REFERRAL STRIP */
+  .referral-strip {
+    background: var(--ice);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 28px 5%;
+  }
+
+  .referral-strip-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .referral-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--mid);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .referral-icon svg {
+    width: 20px;
+    height: 20px;
+    stroke: white;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .referral-strip p {
+    color: var(--steel);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .referral-strip strong { color: var(--navy); }
+
+  /* CONTACT */
+  .contact {
+    background: var(--navy);
+    padding: 56px 5%;
+    text-align: center;
+  }
+
+  .contact h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .contact p {
+    color: rgba(255,255,255,0.68);
+    font-size: 0.98rem;
+    max-width: 480px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+
+  .contact-email {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: white;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .contact-email:hover { background: var(--mid); border-color: var(--mid); }
+
+  .contact-note {
+    margin-top: 18px;
+    color: rgba(255,255,255,0.38);
+    font-size: 0.85rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #06101E;
+    padding: 22px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  footer p, footer a {
+    color: rgba(255,255,255,0.36);
+    font-size: 11.5px;
+    text-decoration: none;
+  }
+
+  footer a:hover { color: rgba(255,255,255,0.65); }
+
+  .footer-links { display: flex; gap: 22px; }
+
+  /* DIVIDER */
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--mid);
+    margin: 0 auto 16px;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .referral-strip-inner { flex-direction: column; gap: 14px; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a class="nav-brand" href="https://everydaytech.com.au">
+    <div class="nav-brand-text">
+      The Everyday Technologist
+      <span>For Business</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="https://everydaytech.com.au">For People</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">IT Consultancy &nbsp;·&nbsp; Hobart, Tasmania</div>
+  <h1>Technology Confidence<br>for <em>Everyday Business</em></h1>
+  <p class="hero-sub">Strategic technology guidance, in plain language, tailored to where your organisation is actually going.</p>
+  <div class="hero-actions">
+    <a href="#services" class="btn-primary">See What I Do</a>
+    <a href="#contact" class="btn-ghost">Get in Touch</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">Ways I Can Help</div>
+    <h2>From Strategy to Confidence on the Ground</h2>
+    <p>The same plain-language, people-first approach that guides everyday people with their technology, applied to the challenges your business faces. No jargon. No unnecessary complexity. Just clear thinking and honest advice.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+      </div>
+      <h3>Business Analysis</h3>
+      <p>Understanding how your business actually works before recommending anything. I map your processes, surface the gaps, and translate operational reality into clear technology requirements.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      </div>
+      <h3>Executive Briefing</h3>
+      <p>Helping leaders understand what a technology decision actually means, in plain language, with real business context. Vendor pitch, board paper, or a question from your team: I translate jargon into clarity.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+      </div>
+      <h3>Program Management</h3>
+      <p>Keeping technology projects on the rails from the business side. Oversight that keeps stakeholders informed, timelines honest, and delivery teams focused on outcomes rather than outputs.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      </div>
+      <h3>Digital Strategy</h3>
+      <p>Helping your organisation decide where technology fits, not just what to buy or build. A coherent direction aligned with your actual goals, culture, and capacity to change.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      </div>
+      <h3>Digital Literacy for Leaders and Staff</h3>
+      <p>Practical workshops and briefings that build real confidence with technology, for leaders who need to make decisions and staff who need to work with new tools every day.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2m0 16v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </div>
+      <h3>AI Adoption</h3>
+      <p>Helping your organisation understand what AI can realistically do for your business, where to start, what to avoid, and how to bring your people along rather than leaving them behind.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Security Practices</h3>
+      <p>Building a culture of sensible security, without the fear-mongering. Practical guidance on what your business actually needs to do to protect itself and the people it serves.</p>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </div>
+      <h3>Change Management</h3>
+      <p>Technology change is people change. I help organisations prepare their teams, manage the transition, and build the kind of buy-in that makes new technology stick rather than stall.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="for-who">
+  <div class="section-header">
+    <div class="section-label" style="color:var(--accent);">Is This You?</div>
+    <p class="for-who-h2">Who This Is For</p>
+  </div>
+  <div class="for-who-grid">
+
+    <div class="for-who-item">
+      <div class="check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+      <p><strong>Business leaders</strong> who want honest technology advice without being sold something</p>
+    </div>
+
+    <div class="for-who-item">
+      <div class="check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+      <p><strong>Organisations mid-transformation</strong> who have lost the thread between IT delivery and business intent</p>
+    </div>
+
+    <div class="for-who-item">
+      <div class="check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+      <p><strong>Boards and executives</strong> who need to make technology decisions and want a trusted, independent perspective</p>
+    </div>
+
+    <div class="for-who-item">
+      <div class="check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+      <p><strong>Technical IT firms</strong> whose clients need strategic and management support beyond the operational work</p>
+    </div>
+
+    <div class="for-who-item">
+      <div class="check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+      <p><strong>Small to mid-size businesses</strong> in Tasmania and beyond who want senior-level thinking without the corporate overhead</p>
+    </div>
+
+    <div class="for-who-item">
+      <div class="check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+      <p><strong>Organisations evaluating vendors</strong> who want someone in the room on their side, not the vendor's</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- REFERRAL STRIP -->
+<section class="referral-strip">
+  <div class="referral-strip-inner">
+    <div class="referral-icon">
+      <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+    </div>
+    <p>
+      <strong>Referred by a technical IT partner?</strong> Many clients come through IT firms whose work is more operational and technical. I handle the strategy, communication, and business management layer alongside that work. If your partner referred you here, that is exactly how this is designed to work. <strong>Happy to have an initial conversation with no strings attached.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-label" style="color:var(--accent);margin-bottom:12px;">Get In Touch</div>
+  <h2>Let's have a conversation.</h2>
+  <p>No jargon. No pitch. Just a straight conversation about whether I can help, and if I am not the right fit, I will tell you who is.</p>
+  <a href="mailto:info@everydaytech.com.au" class="contact-email">info@everydaytech.com.au</a>
+  <p class="contact-note">Based in Hobart, Tasmania &nbsp;·&nbsp; Available remotely across Australia</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>2025 The Everyday Technologist &nbsp;·&nbsp; Hobart, TAS</p>
+  <div class="footer-links">
+    <a href="https://everydaytech.com.au">Everyday Tech for People</a>
+    <a href="https://everydaytech.com.au/privacy-policy">Privacy</a>
+    <a href="https://everydaytech.com.au/terms-and-conditions">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
